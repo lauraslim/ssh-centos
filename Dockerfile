@@ -10,6 +10,8 @@ RUN useradd test
 
 RUN usermod -aG sudo test
 
+RUN yum install service -y
+
 RUN service sshd start
 
 RUN service sshd status
