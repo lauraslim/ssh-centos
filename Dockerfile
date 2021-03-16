@@ -10,9 +10,9 @@ RUN useradd test
 
 RUN usermod -aG sudo test
 
-RUN /etc/init.d/sshd start
+RUN service sshd start
 
-RUN systemctl status sshd.service
+RUN service sshd status
 
 RUN  echo 'test:test' | chpasswd
 
