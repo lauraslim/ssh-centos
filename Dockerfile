@@ -14,11 +14,7 @@ RUN yum -y install initscripts && yum clean all
 
 RUN yum install systemd -y
 
-RUN systemctl start sshd.service
-
-RUN systemctl enable sshd.service
-
-RUN systemctl status sshd.service
+RUN /etc/init.d/sshd start
 
 RUN  echo 'test:test' | chpasswd
 
