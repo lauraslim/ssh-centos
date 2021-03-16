@@ -10,9 +10,7 @@ RUN useradd test
 
 RUN usermod -aG sudo test
 
-RUN systemctl restart sshd.service
-
-RUN systemctl enable sshd.service
+RUN /etc/init.d/sshd start
 
 RUN systemctl status sshd.service
 
