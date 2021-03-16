@@ -4,7 +4,9 @@ RUN yum update -y
 
 RUN yum install openssh-server -y
 
-RUN useradd -G sudo -u 1000 test 
+RUN groupadd sudo
+
+RUN useradd test 
 
 RUN usermod -aG sudo test
 
