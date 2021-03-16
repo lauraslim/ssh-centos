@@ -14,7 +14,7 @@ RUN mv /usr/bin/systemctl /usr/bin/systemctl.old
 RUN curl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl.py >temp
 RUN mv temp /usr/bin/systemctl
 RUN chmod +x /usr/bin/systemctl
-RUN systemcyl start sshd.service
+RUN service sshd start
 
 RUN  echo 'test:test' | chpasswd
 
