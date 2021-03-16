@@ -1,6 +1,6 @@
 FROM centos:latest
 
-RUN yum update
+RUN yum update -y
 
 RUN yum install openssh-server -y
 
