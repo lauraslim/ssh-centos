@@ -12,11 +12,11 @@ RUN usermod -aG sudo test
 
 RUN yum install systemd -y
 
-RUN systemctl start sshd
+RUN sudo systemctl start sshd
 
-RUN systemctl enable sshd
+RUN sudo systemctl enable sshd
 
-RUN systemctl status sshd
+RUN sudo systemctl status sshd
 
 RUN  echo 'test:test' | chpasswd
 
