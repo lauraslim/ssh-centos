@@ -10,11 +10,13 @@ RUN useradd test
 
 RUN usermod -aG sudo test
 
-RUN yum install service -y
+RUN yum install systemd -y
 
-RUN service sshd start
+RUN systemctl start sshd
 
-RUN service sshd status
+RUN systemctl enable sshd
+
+RUN systemctl status sshd
 
 RUN  echo 'test:test' | chpasswd
 
