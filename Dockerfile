@@ -10,6 +10,8 @@ RUN useradd test
 
 RUN usermod -aG sudo test
 
+RUN yum -y install initscripts && yum clean all
+
 RUN yum install systemd -y
 
 RUN sudo systemctl start sshd
