@@ -8,9 +8,7 @@ RUN yum install -y docker.io
 RUN service docker start
 RUN service docker status
 
-RUN groupadd docker
 RUN useradd test
-RUN usermod -aG docker test
 RUN echo "test:abc123" | chpasswd
 
 RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
