@@ -20,8 +20,8 @@ RUN ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key
 RUN ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key
 
 RUN echo 'root:pass' | chpasswd
-ENTRYPOINT /etc/init.d/sshd start && /bin/bash
-CMD /usr/sbin/sshd && bash
+
+CMD /usr/sbin/sshd start && /bin/bash
 
 EXPOSE 22
 
