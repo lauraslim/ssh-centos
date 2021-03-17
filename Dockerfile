@@ -3,6 +3,7 @@ MAINTAINER laura
 
 RUN yum update -y
 RUN yum install -y openssh-server 
+RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in ; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done);
 RUN rm -rf /lib/systemd/system/multi-user.target.wants/;
 RUN rm -rf /etc/systemd/system/.wants/;
