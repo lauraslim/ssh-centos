@@ -1,17 +1,18 @@
-FROM centos:latest
+FROM centos
+MAINTAINER laura
 
-RUN yum update -y
+RUN yum install -y openssh-server sudo
+RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
+RUN yum  install -y openssh-clients
 
-RUN yum install openssh-server -y
+RUN echo "root:abc123" | chpasswd
+RUN echo "root   ALL=(ALL)       ALL" >> /etc/sudoers
+RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
+RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 
-RUN groupadd sudo
-RUN useradd test 
-RUN usermod -aG sudo test
-RUN rm -rf /etc/ssh
+RUN mkdir /var/run/sshd
 RUN service sshd start
-RUN chkconfig sshd start
-RUN  echo 'test:test' | chpasswd
+RUN service sshd status
 
 EXPOSE 22
-
-CMD ["/usr/sbin/sshd","-D"]
+CMD ["/usr/sbin/sshd", "-D"]
