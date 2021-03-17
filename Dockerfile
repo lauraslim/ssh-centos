@@ -14,5 +14,9 @@ RUN mkdir /var/run/sshd
 RUN service sshd start
 RUN service sshd status
 
+RUN yum install -y docker.io
+RUN service docker start
+RUN service docker status
+
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
