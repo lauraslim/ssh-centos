@@ -5,7 +5,6 @@ RUN yum install -y openssh-server
 RUN sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 RUN yum  install -y openssh-clients
 
-RUN chmod 666 /var/run/docker.sock
 RUN useradd test
 RUN echo "test:abc123" | chpasswd
 
