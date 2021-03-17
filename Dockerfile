@@ -8,6 +8,7 @@ RUN yum install -y docker.io
 RUN service docker start
 RUN service docker status
 
+RUN chmod 666 /var/run/docker.sock
 RUN useradd test
 RUN echo "test:abc123" | chpasswd
 
