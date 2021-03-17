@@ -12,7 +12,7 @@ RUN rm -rf /lib/systemd/system/sockets.target.wants/udev;
 RUN rm -rf /lib/systemd/system/sockets.target.wants/initctl;
 RUN rm -rf /lib/systemd/system/basic.target.wants/;
 RUN rm -rf /lib/systemd/system/anaconda.target.wants/*;
-VOLUME [ “/sys/fs/cgroup” ]
+#VOLUME [ “/sys/fs/cgroup” ]
 
 RUN mkdir /var/run/sshd
 RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
