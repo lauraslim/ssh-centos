@@ -10,7 +10,7 @@ RUN useradd -g root -G sudo -u 1000 test
 
 RUN usermod -aG sudo test
 
-RUN service ssh start
+RUN service sshd start
 
 RUN  echo 'test:test' | chpasswd
 
