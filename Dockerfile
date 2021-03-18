@@ -1,17 +1,10 @@
-FROM centos:7
+FROM lauradocker84/ssh-centos7
 
 RUN yum update -y
 
-RUN yum install  openssh-server sudo -y
-
-RUN groupadd sudo
-
-RUN useradd -g root -G sudo -u 1000 test 
-
-RUN usermod -aG sudo test
+RUN yum install  openssh-server -y
 
 RUN systemctl start sshd
-RUN  echo 'test:test' | chpasswd
 
 EXPOSE 22
 
