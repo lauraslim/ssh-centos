@@ -1,4 +1,4 @@
-FROM lauradocker84/ssh-centos7
+FROM centos7/systemd
 
 RUN yum update -y
 
