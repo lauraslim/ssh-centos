@@ -10,8 +10,7 @@ RUN useradd -g root -G sudo -u 1000 test
 
 RUN usermod -aG sudo test
 
-RUN service sshd start
-
+RUN systemctl start sshd
 RUN  echo 'test:test' | chpasswd
 
 EXPOSE 22
